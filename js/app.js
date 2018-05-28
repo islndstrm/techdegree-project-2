@@ -39,6 +39,14 @@ function getNumberOfPages (list) {
     return Math.floor(list.length / 10) + 1;
 }
 
+// hides all the students and resets variables
+function hide(list) {
+  for (let i = 0; i < list.length; i++) {
+    list[i].style.display = "none";
+  }
+  messageDiv.innerHTML = "";
+}
+
 // creates the correct amount of page links
 function createPageLinks(count) {
   pageULs.innerHTML = "";
@@ -58,11 +66,7 @@ function createPageLinks(count) {
 //function shows which students should be show on the current page
 function showRecords(list, page) {
   // hide all records and clear messages
-  for (let i = 0; i < list.length; i++) {
-    list[i].style.display = "none";
-  }
-  messageDiv.innerHTML = "";
-
+  hide(list);
   // show only the selected range of records
   let begIndex = page * 10 - 10;
   for (let i = begIndex; i < (begIndex + max); i++) {
@@ -78,12 +82,8 @@ function showRecords(list, page) {
 // search the student records and shows the results
 function searchList(terms) {
   // hide all records and clear messages
-  for (let i = 0; i < studentList.length; i++) {
-    studentList[i].style.display = "none";
-  }
-  messageDiv.innerHTML = "";
+  hide(studentList);
   let searchCount = 0;
-
   // search for match of input
   const h3s = document.querySelectorAll('h3');
   const emails = document.querySelectorAll('.email');
