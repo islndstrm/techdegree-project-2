@@ -100,12 +100,13 @@ function searchList(terms) {
     return;
   }
   // show results
-  for (let i = 0; i < message.length; i++) {
-    message[i].style.display = "block";
-    parent.insertBefore(message[i], pageDiv);
-    searchCount++;
-  }
-  createPageLinks(searchCount);
+  showRecords(message, 1);
+  // for (let i = 0; i < message.length; i++) {
+  //   message[i].style.display = "block";
+  //   parent.insertBefore(message[i], pageDiv);
+  //   searchCount++;
+  // }
+  // createPageLinks(searchCount);
   message = [];
 }
 
